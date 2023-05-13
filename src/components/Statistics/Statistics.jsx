@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 class Statistics extends Component {
     countTotalFeedback = (good, neutral, bad) => {
-		// console.log('It works')
 		return (good + neutral + bad)
 	}
     positivePercentage = (good, neutral, bad) => {
