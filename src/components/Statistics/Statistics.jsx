@@ -1,4 +1,6 @@
 import { Component } from 'react'
+import css from './Statistics.module.css';
+import PropTypes from "prop-types";
 
 class Statistics extends Component {
     countTotalFeedback = (good, neutral, bad) => {
@@ -10,14 +12,30 @@ class Statistics extends Component {
     render(){
         const {good, neutral, bad} = this.props
         return (
-            <ul className="list-group">
-                <li className="list-group-item">Good: {good}</li>
-                <li className="list-group-item">Neutral: {neutral}</li>
-                <li className="list-group-item">Bad: {bad}</li>
-                <li className="list-group-item">Total: {this.countTotalFeedback(good, neutral, bad)}</li>
-                <li className="list-group-item">Positive feedback: {this.positivePercentage(good, neutral, bad)} %</li>
+            <ul className={css.list}>
+                <li className={css.item}>
+                   <span>Good: {good}</span>
+                </li>
+                <li className={css.item}>
+                    <span>Neutral: {neutral}</span>
+                </li>
+                <li className={css.item}>
+                    <span>Bad: {bad}</span> 
+                </li>
+                <li className={css.item}>
+                    <span>Total: {this.countTotalFeedback(good, neutral, bad)}</span>
+                </li>
+                <li className={css.item}>
+                    <span>Positive feedback: {this.positivePercentage(good, neutral, bad)} %</span> 
+                </li>
             </ul>
         )
     }
 }
 export default Statistics
+
+Statistics.propTypes = {
+    good: PropTypes.string.isRequired,
+    neutral: PropTypes.string.isRequired,
+    bad: PropTypes.string.isRequired,
+  };

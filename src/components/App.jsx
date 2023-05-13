@@ -22,7 +22,7 @@ class App extends Component {
 	// }
 	render(){
 		return (
-			<div className='container'>
+			<>
 				 <Section title={'Please leave feedback'}>
 				 	<FeedbackOptions 
 						options={['good', 'neutral', 'bad']} 
@@ -40,7 +40,7 @@ class App extends Component {
 					/>) 
 					: (<Notification  message={'There is no feedback'}/>)}
 				 </Section>
-			</div>
+			</>
 		)
 	}
 }

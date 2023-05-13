@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
+import css from './FeedbackOptions.module.css';
+import PropTypes from "prop-types";
 
 class FeedbackOptions extends Component {
     render(){
         const { options, onLeaveFeedback } = this.props
         return (
-            <div className="row">
+            <div className={css.buttons}>
                 {options.map((option, index) => {
-                   return (<div className="col" key={index}>
-                                <button 
-                                    name={option}
-                                    type="button" 
-                                    className="btn btn-info" 
-                                    onClick={onLeaveFeedback}
-                                >
-                                    {option}
-                                </button>
-                            </div>)
+                   return (
+                            <button 
+                                name={option}
+                                key={index}
+                                type="button" 
+                                className={css.btn} 
+                                onClick={onLeaveFeedback}
+                            >
+                                {option}
+                            </button>)
                 })}
             </div>
         )
@@ -23,3 +25,11 @@ class FeedbackOptions extends Component {
 }
 
 export default FeedbackOptions
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(
+      PropTypes.exact({
+        option: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  };
