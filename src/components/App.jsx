@@ -13,13 +13,13 @@ class App extends Component {
 	onLeaveFeedback = ({target: {name}}) => {
 		this.setState((prevState) => ({ [name]: prevState[name] + 1, }))
 	}
-	countTotalFeedback = (evt) => {
-		console.log('It works')
-		return (this.state.good + this.state.bad + this.state.neutral)
-	}
-	countPositiveFeedbackPercentage = () => {
-		return Math.floor((this.state.good / (this.state.good + this.state.bad + this.state.neutral)) * 100)
-	}
+	// countTotalFeedback = (evt) => {
+	// 	console.log('It works')
+	// 	return (this.state.good + this.state.bad + this.state.neutral)
+	// }
+	// countPositiveFeedbackPercentage = () => {
+	// 	return Math.floor((this.state.good / (this.state.good + this.state.bad + this.state.neutral)) * 100)
+	// }
 	render(){
 		return (
 			<div className='container'>
@@ -36,9 +36,7 @@ class App extends Component {
 					(<Statistics 
 						good={this.state.good} 
 						neutral={this.state.neutral} 
-						bad={this.state.bad} 
-						total={this.countTotalFeedback} 
-						positivePercentage={this.countPositiveFeedbackPercentage}
+						bad={this.state.bad}
 					/>) 
 					: (<Notification  message={'There is no feedback'}/>)}
 				 </Section>
